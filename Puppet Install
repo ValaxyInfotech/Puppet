@@ -30,3 +30,49 @@
            
 12. Console mail server
            Tyep local host
+
+========================================================
+
+### Client Node side 
+
+1. login to clinet and enable root login if it is not enabled.
+
+2. install puppet yum repo puppet packages.
+          rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+
+3. Then install puppet client
+      yum install 
+      
+4. to check puppet agent installed or not
+        puppet agent -t
+        
+5. we need to tell our client which one is his master. Jump into /etc/puppet/puppet.conf file add below entry
+
+server = ravis8291.mylabserver.com
+
+6. run puppet agent -t 
+
+7. puppet agent --waitforcert 60 - it will go and communicate with puppet master and wait for 60 sec to get certification. with in this time 
+    you should accessp this request from puppet master side. 
+
+=================================master side====================
+
+8. after this you can go to puppet master side. this list all node which are waiting for certification 
+        puppet cert list
+
+9. to accept client node run below command
+    puppet cert sign <clinet_FQDN)
+   Note: we we want to sign all of them " puppet cert sign --all"
+
+----------------------------------- client side -------------------
+
+10. run below command to connect to puppet master. it downloades information from puppet master catlog that defines what state clinet shoud be.
+        puppet agent -t
+        
+
+
+
+
+
+
+          
