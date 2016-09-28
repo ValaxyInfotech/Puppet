@@ -1,3 +1,32 @@
 # This is to install puppet
 
-1.
+1. download puppet entireprise software to system. 
+
+2. add fully qualified domain name to /etc/hosts/ file like below.
+127.0.0.1 ravis8291.mylabserver.com localhost.localdomain localhost
+
+3. got to directory where you have downloaded and run below command
+``` ./puppet-enterprise-installer ```
+
+4. it provides a url to configure puppet master through brower. us that link and go through with below options
+
+5. Chosed Monolithic installation from Monolithic/split installation
+
+6. puppet master FQDN
+    ravis8291.mylabserver.com
+    
+7. Puppet Master DNS aliases
+          puppet
+ 
+8. SSH username 
+           root ( On Puppet master root should be enabled- If it is not enabled got to ssh_config file and eanbled "RemoteRootLogin" attribute)
+          
+9. Provide password
+
+10. Select database as PostgreSQL
+
+11. Consloed administrator user 
+           Provide email and password 
+           
+12. Console mail server
+           Tyep local host
